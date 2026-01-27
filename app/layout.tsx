@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Let'z Go Charter - Luxury Island Experiences in Seychelles",
   description: 'Premium boat charters and island cruises in Seychelles. Book luxury experiences including clear boat tours, fishing adventures, and private beach picnics.',
   icons: {
-    icon: '/images/75e7bb28a9d92ca96b6b4f75cdfcdee48ff91f59.jpeg',
+    icon: '/images/nobglogo.png',
   },
 }
 

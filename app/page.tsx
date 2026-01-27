@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Anchor, Users, MapPin, Shield, Award, Star } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
 
@@ -9,7 +9,7 @@ const experiences = [
   {
     title: 'Clear Boat Experience',
     description: 'Explore the underwater world without getting wet',
-    image: 'https://images.unsplash.com/photo-1593033166622-49e87e744422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhciUyMGdsYXNzJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/clear-boat.jpg',
   },
   {
     title: 'Sandbank & Marine Park',
@@ -19,12 +19,12 @@ const experiences = [
   {
     title: 'Island Day Cruises',
     description: 'Discover Praslin, La Digue & more',
-    image: 'https://images.unsplash.com/photo-1660315250109-075f6b142ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGlzbGFuZCUyMHBhcmFkaXNlfGVufDF8fHx8MTc2ODUxNDMzM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/gallery/islands/2.jpg',
   },
   {
     title: 'Fishing With The Pro',
     description: 'Deep sea fishing with expert guides',
-    image: 'https://images.unsplash.com/photo-1710442995783-3640c50c4ab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaXNoaW5nJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/gallery/fishing/1.jpg',
   },
   {
     title: 'Prestige Beach Picnic',
@@ -60,10 +60,11 @@ const testimonials = [
 ];
 
 const galleryImages = [
-  'https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080',
-  'https://images.unsplash.com/photo-1658305808929-4825d131c245?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBib2F0JTIwc2V5Y2hlbGxlc3xlbnwxfHx8fDE3Njg1OTI2NTZ8MA&ixlib=rb-4.1.0&q=80&w=1080',
-  'https://images.unsplash.com/photo-1598448056086-307e98ef5c4a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodCUyMGludGVyaW9yJTIwbHV4dXJ5fGVufDF8fHx8MTc2ODQ5MTc4NXww&ixlib=rb-4.1.0&q=80&w=1080',
-  'https://images.unsplash.com/photo-1618822461310-da1be362e30c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXljaGVsbGVzJTIwYmVhY2h8ZW58MXx8fHwxNzY4NTUxODYxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+  { src: '/images/gallery/boats/1.jpg', category: 'Boats' },
+  { src: '/images/gallery/islands/1.jpg', category: 'Islands' },
+  { src: '/images/gallery/moments/1.jpg', category: 'Moments' },
+  { src: '/images/gallery/fishing/1.jpg', category: 'Fishing' },
+  { src: '/images/gallery/beach-picnic/1.jpg', category: 'Beach Picnic' },
 ];
 
 export default function HomePage() {
@@ -209,21 +210,27 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {galleryImages.map((img, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={img.src}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="overflow-hidden rounded-lg"
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="group relative overflow-hidden rounded-xl cursor-pointer border border-amber-500/40 shadow-[0_0_15px_-5px_rgba(245,158,11,0.3)] hover:shadow-[0_0_35px_-5px_rgba(245,158,11,0.6)] hover:border-amber-500/80 transition-all duration-500 bg-background"
               >
-                <ImageWithFallback
-                  src={img || "/placeholder.svg"}
-                  alt={`Gallery image ${index + 1}`}
-                  className="w-full h-64 object-cover hover:scale-110 transition-transform duration-500 cursor-pointer"
-                />
+                <div className="relative h-48 w-full overflow-hidden">
+                  <ImageWithFallback
+                    src={img.src || "/placeholder.svg"}
+                    alt={img.category}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-4 left-4 z-10">
+                    <span className="text-white text-lg font-medium drop-shadow-md">{img.category}</span>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -231,9 +238,9 @@ export default function HomePage() {
           <div className="text-center">
             <Link
               href="/gallery"
-              className="inline-block px-8 py-3 border-2 border-primary text-primary rounded-md hover:bg-primary/10 transition-colors font-medium"
+              className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/25"
             >
-              View Gallery
+              View Full Gallery
             </Link>
           </div>
         </div>
