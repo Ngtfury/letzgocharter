@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { ScrollToTop } from '@/components/ScrollToTop'
 import { PageTransition } from '@/components/PageTransition'
+import { SmoothScroll } from '@/components/SmoothScroll'
 import './globals.css'
 
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' })
@@ -28,17 +29,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <main className="flex-grow">
-            <PageTransition>
-              {children}
-            </PageTransition>
-          </main>
-          <Footer />
-          <WhatsAppButton />
-          <ScrollToTop />
-        </div>
+        <SmoothScroll>
+          <div className="min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-grow">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </main>
+            <Footer />
+            <WhatsAppButton />
+            <ScrollToTop />
+          </div>
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>
