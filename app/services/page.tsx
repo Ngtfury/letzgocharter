@@ -3,13 +3,14 @@
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Clock, Users, ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
 
-const services = [
+const seaServices = [
   {
     title: 'Clear Boat Experience',
     description: 'Hop aboard our amazing clear boat and cruise across crystal clear waters to St. Anne Marine Park. Spot marine species, sea turtles, and enjoy exciting fish & tortoise feeding.',
-    image: '/images/clear-boat.jpg',
+    image: 'https://images.unsplash.com/photo-1593033166622-49e87e744422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhciUyMGdsYXNzJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
     highlights: [
       'St. Anne Marine Park exploration',
       'Fish & tortoise feeding',
@@ -122,7 +123,53 @@ const services = [
   },
 ];
 
+const landServices = [
+  {
+    title: 'Land Rover Defender Exploration',
+    description: 'Embark on an off-road adventure through stunning landscapes. Explore hidden trails, local villages, and scenic viewpoints in our premium Land Rover Defender.',
+    image: 'https://images.unsplash.com/photo-1605559424843-9e4c3dec1806?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kJTIwcm92ZXIlMjBkZWZlbmRlcnxlbnwxfHx8fDE3Njg1OTI2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    highlights: [
+      'Off-road exploration of scenic trails',
+      'Visit authentic local villages',
+      'Panoramic viewpoint stops',
+      'Professional driver & guide included',
+      'Complimentary refreshments & snacks',
+    ],
+    duration: 'Half Day: 4 hrs | Full Day: 8 hrs',
+    capacity: '4 passengers (SUV capacity)',
+    pricing: {
+      halfDay4hrs: '€580',
+      fullDay8hrs: '€950',
+      privateDriver: 'Included',
+    },
+    details: 'VIP hotel transfer included. Flexible pickup times. Air-conditioned comfort throughout.',
+  },
+  {
+    title: 'Mini Cooper Island Tour',
+    description: 'Experience the islands in style with our iconic Mini Cooper convertibles. Perfect for couples and small groups seeking a unique, stylish way to explore charming local areas.',
+    image: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pJTIwY29vcGVyJTIwY29udmVydGlibGV8ZW58MXx8fHwxNzY4NTkyNjU3fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    highlights: [
+      'Stylish Mini Cooper convertible experience',
+      'Self-drive or with professional guide',
+      'Scenic coastal routes & photo stops',
+      'Local restaurant recommendations included',
+      'Premium vehicle insurance provided',
+    ],
+    duration: 'Half Day: 4 hrs | Full Day: 8 hrs',
+    capacity: '2 passengers per Mini',
+    pricing: {
+      halfDay4hrs: '€420',
+      fullDay8hrs: '€680',
+      guidedOption: 'Add €150 for professional guide',
+    },
+    details: 'Self-drive or guided options available. International driving permit required. Fuel included.',
+  },
+];
+
+const services = [...seaServices, ...landServices];
+
 export default function ServicesPage() {
+  const [activeTab, setActiveTab] = useState('sea');
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
@@ -148,11 +195,44 @@ export default function ServicesPage() {
         </motion.div>
       </section>
 
+      {/* Services Toggle */}
+      <section className="py-8 bg-muted/30 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-center items-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveTab('sea')}
+              className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                activeTab === 'sea'
+                  ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+                  : 'bg-muted/50 text-foreground/70 hover:text-foreground hover:bg-muted'
+              }`}
+            >
+              Sea Adventures
+            </motion.button>
+            <div className="h-8 w-0.5 bg-primary/30" />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveTab('land')}
+              className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                activeTab === 'land'
+                  ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+                  : 'bg-muted/50 text-foreground/70 hover:text-foreground hover:bg-muted'
+              }`}
+            >
+             Land Experiences
+            </motion.button>
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
+            {(activeTab === 'sea' ? seaServices : landServices).map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 30 }}

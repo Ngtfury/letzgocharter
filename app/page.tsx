@@ -1,9 +1,38 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Anchor, Users, MapPin, Shield, Award, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { Anchor, Users, MapPin, Shield, Award, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+
+const carouselImages = [
+  {
+    src: "https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Luxury Yacht Adventures",
+    subtitle: "Explore pristine waters in style"
+  },
+  {
+    src: "/images/gallery/islands/1.jpg",
+    title: "Island Cruising",
+    subtitle: "Discover hidden gems of Seychelles"
+  },
+  {
+    src: "/images/gallery/boats/1.jpg",
+    title: "Premium Charters",
+    subtitle: "Experience the ultimate in luxury"
+  },
+  {
+    src: "/images/gallery/moments/1.jpg",
+    title: "Unforgettable Moments",
+    subtitle: "Create memories that last a lifetime"
+  },
+  {
+    src: "/images/gallery/fishing/1.jpg",
+    title: "Deep Sea Fishing",
+    subtitle: "Adventure awaits in the deep blue"
+  }
+];
 
 const experiences = [
   {
@@ -68,17 +97,74 @@ const galleryImages = [
 ];
 
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Carousel Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Luxury yacht in turquoise water"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
+        {/* Carousel Images */}
+        {carouselImages.map((image, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentSlide ? 1 : 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
+            <ImageWithFallback
+              src={image.src || "/placeholder.svg"}
+              alt={image.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/40 to-background" />
+          </motion.div>
+        ))}
+
+        {/* Carousel Controls - Previous Button */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={prevSlide}
+          className="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20 p-3 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full transition-all"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </motion.button>
+
+        {/* Carousel Controls - Next Button */}
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={nextSlide}
+          className="absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 z-20 p-3 bg-primary/80 hover:bg-primary text-primary-foreground rounded-full transition-all"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </motion.button>
+
+        {/* Carousel Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {carouselImages.map((_, index) => (
+            <motion.button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === currentSlide ? 'bg-primary w-8' : 'bg-primary/50 w-2 hover:bg-primary/75'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
