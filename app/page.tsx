@@ -18,7 +18,7 @@ const carouselImages = [
     subtitle: "Discover hidden gems of Seychelles"
   },
   {
-    src: "/images/gallery/moments/7.jpg",
+    src: "/images/gallery/moments/7.JPG",
     title: "Luxury Beach Picnics",
     subtitle: "Dine in paradise on pristine sands"
   },
@@ -28,7 +28,7 @@ const carouselImages = [
     subtitle: "Adventure awaits in the deep blue"
   },
   {
-    src: "/images/gallery/moments/8.jpg",
+    src: "/images/gallery/moments/8.JPG",
     title: "Unforgettable Moments",
     subtitle: "Create memories that last a lifetime"
   }

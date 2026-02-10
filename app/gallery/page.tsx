@@ -32,8 +32,8 @@ const galleryImages = [
   { src: '/images/gallery/moments/4.jpg', category: 'Moments' },
   { src: '/images/gallery/moments/5.jpg', category: 'Moments' },
   { src: '/images/gallery/moments/6.jpg', category: 'Moments' },
-  { src: '/images/gallery/moments/7.jpg', category: 'Moments' },
-  { src: '/images/gallery/moments/8.jpg', category: 'Moments' },
+  { src: '/images/gallery/moments/7.JPG', category: 'Moments' },
+  { src: '/images/gallery/moments/8.JPG', category: 'Moments' },
   { src: '/images/gallery/moments/9.jpg', category: 'Moments' },
   
   // Fishing
