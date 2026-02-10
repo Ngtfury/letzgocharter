@@ -8,9 +8,9 @@ import { ImageWithFallback } from '@/components/ImageWithFallback';
 
 const carouselImages = [
   {
-    src: "https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "Luxury Yacht Adventures",
-    subtitle: "Explore pristine waters in style"
+    src: "/images/gallery/boats/1.jpg",
+    title: "Premium Charters",
+    subtitle: "Experience the ultimate in luxury"
   },
   {
     src: "/images/gallery/islands/1.jpg",
@@ -18,19 +18,19 @@ const carouselImages = [
     subtitle: "Discover hidden gems of Seychelles"
   },
   {
-    src: "/images/gallery/boats/1.jpg",
-    title: "Premium Charters",
-    subtitle: "Experience the ultimate in luxury"
-  },
-  {
-    src: "/images/gallery/moments/1.jpg",
-    title: "Unforgettable Moments",
-    subtitle: "Create memories that last a lifetime"
+    src: "/images/gallery/moments/7.jpg",
+    title: "Luxury Beach Picnics",
+    subtitle: "Dine in paradise on pristine sands"
   },
   {
     src: "/images/gallery/fishing/1.jpg",
     title: "Deep Sea Fishing",
     subtitle: "Adventure awaits in the deep blue"
+  },
+  {
+    src: "/images/gallery/moments/8.jpg",
+    title: "Unforgettable Moments",
+    subtitle: "Create memories that last a lifetime"
   }
 ];
 

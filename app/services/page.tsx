@@ -125,9 +125,9 @@ const seaServices = [
 
 const landServices = [
   {
-    title: 'Land Rover Defender Exploration',
+    title: 'Land Rover Defender',
     description: 'Embark on an off-road adventure through stunning landscapes. Explore hidden trails, local villages, and scenic viewpoints in our premium Land Rover Defender.',
-    image: 'https://images.unsplash.com/photo-1605559424843-9e4c3dec1806?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kJTIwcm92ZXIlMjBkZWZlbmRlcnxlbnwxfHx8fDE3Njg1OTI2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/gallery/moments/7.JPG',
     highlights: [
       'Off-road exploration of scenic trails',
       'Visit authentic local villages',
@@ -135,19 +135,19 @@ const landServices = [
       'Professional driver & guide included',
       'Complimentary refreshments & snacks',
     ],
-    duration: 'Half Day: 4 hrs | Full Day: 8 hrs',
+    duration: 'Flexible',
     capacity: '4 passengers (SUV capacity)',
     pricing: {
-      halfDay4hrs: '€580',
-      fullDay8hrs: '€950',
-      privateDriver: 'Included',
+      center: '€150 (Go Center)',
+      north: '€300 (Go North)',
+      south: '€300 (Go South)',
     },
     details: 'VIP hotel transfer included. Flexible pickup times. Air-conditioned comfort throughout.',
   },
   {
-    title: 'Mini Cooper Island Tour',
-    description: 'Experience the islands in style with our iconic Mini Cooper convertibles. Perfect for couples and small groups seeking a unique, stylish way to explore charming local areas.',
-    image: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pJTIwY29vcGVyJTIwY29udmVydGlibGV8ZW58MXx8fHwxNzY4NTkyNjU3fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    title: 'Mini Cooper Convertible',
+    description: 'Experience the islands in style with our iconic Mini Cooper convertibles. 1.5cc Petrol, Automatic, 2 Doors. Perfect for couples and small groups seeking a unique, stylish way to explore.',
+    image: '/images/gallery/moments/8.JPG',
     highlights: [
       'Stylish Mini Cooper convertible experience',
       'Self-drive or with professional guide',
@@ -155,13 +155,9 @@ const landServices = [
       'Local restaurant recommendations included',
       'Premium vehicle insurance provided',
     ],
-    duration: 'Half Day: 4 hrs | Full Day: 8 hrs',
+    duration: 'Daily Rental',
     capacity: '2 passengers per Mini',
-    pricing: {
-      halfDay4hrs: '€420',
-      fullDay8hrs: '€680',
-      guidedOption: 'Add €150 for professional guide',
-    },
+    pricing: '€188 / Day',
     details: 'Self-drive or guided options available. International driving permit required. Fuel included.',
   },
 ];
