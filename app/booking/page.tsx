@@ -39,7 +39,7 @@ const boats = [
   {
     id: 'letzgoboat',
     name: 'LetzGoBoat',
-    image: '/images/letzgoboat.jpg',
+    image: '/images/DSC02979.jpg',
     //
     description: 'Modern, fast, and perfect for island hopping.'
   }
