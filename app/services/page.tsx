@@ -10,7 +10,7 @@ const seaServices = [
   {
     title: 'Clear Boat Experience',
     description: 'Hop aboard our amazing clear boat and cruise across crystal clear waters to St. Anne Marine Park. Spot marine species, sea turtles, and enjoy exciting fish & tortoise feeding.',
-    image: 'https://images.unsplash.com/photo-1593033166622-49e87e744422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhciUyMGdsYXNzJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/clear-boat.jpg',
     highlights: [
       'St. Anne Marine Park exploration',
       'Fish & tortoise feeding',
