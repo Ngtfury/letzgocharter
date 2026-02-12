@@ -40,6 +40,7 @@ const boats = [
     id: 'letzgoboat',
     name: 'LetzGoBoat',
     image: '/images/letzgoboat.jpg',
+    //
     description: 'Modern, fast, and perfect for island hopping.'
   }
 ];
