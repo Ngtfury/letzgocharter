@@ -121,9 +121,13 @@ export default function AboutPage() {
           >
             <h2 className="text-4xl text-primary mb-6">Our Fleet</h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-12">
-              Modern, well-maintained vessels equipped with state-of-the-art safety equipment and luxurious amenities
+              Modern, well-maintained vessels and luxury vehicles equipped with state-of-the-art safety equipment and premium amenities
             </p>
           </motion.div>
+
+          <div className="text-center mb-8">
+            <h3 className="text-3xl text-primary font-light">Boat Fleet</h3>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <motion.div
@@ -157,6 +161,65 @@ export default function AboutPage() {
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
                 <h3 className="text-2xl text-primary mb-2">Clear Glass Boat</h3>
                 <p className="text-foreground/80">Capacity: Up to 8 guests</p>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="text-center mb-8 mt-16">
+            <h3 className="text-3xl text-primary font-light">Car Fleet</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden rounded-lg group"
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBzdXZ8ZW58MXx8fHwxNzY4NTkyNjYwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Luxury SUV"
+                className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
+                <h4 className="text-xl text-primary mb-1">Luxury SUV</h4>
+                <p className="text-sm text-foreground/80">Capacity: Up to 5 passengers</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative overflow-hidden rounded-lg group"
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1550355291-bbee04a92027?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwc2VkYW58ZW58MXx8fHwxNzY4NTkyNjYxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Premium Sedan"
+                className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
+                <h4 className="text-xl text-primary mb-1">Premium Sedan</h4>
+                <p className="text-sm text-foreground/80">Capacity: Up to 3 passengers</p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative overflow-hidden rounded-lg group"
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXJnZSUyMHZhbHxlbnwxfHx8fDE3Njg1OTI2NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="VIP Van"
+                className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
+                <h4 className="text-xl text-primary mb-1">VIP Van</h4>
+                <p className="text-sm text-foreground/80">Capacity: Up to 8 passengers</p>
               </div>
             </motion.div>
           </div>

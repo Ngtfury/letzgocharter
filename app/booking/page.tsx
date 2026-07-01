@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Users, Mail, Phone, MessageSquare, Ship, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { useForm, Controller } from 'react-hook-form';
@@ -42,11 +42,25 @@ const boats = [
     image: '/images/DSC02979.JPG',
     //
     description: 'Modern, fast, and perfect for island hopping.'
+  },
+  {
+    id: 'clearboat',
+    name: 'Clear Glass Boat',
+    image: 'https://images.unsplash.com/photo-1593033166622-49e87e744422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhciUyMGdsYXNzJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    description: 'Explore the underwater world without getting wet.'
   }
 ];
 
 export default function BookingPage() {
   const [selectedBoat, setSelectedBoat] = useState<string | null>(null);
+  const [filterBoat, setFilterBoat] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setFilterBoat(params.get('boat'));
+  }, []);
+
+  const displayedBoats = filterBoat ? boats.filter(b => b.id === filterBoat) : boats;
   const { register, control, handleSubmit, formState: { errors }, reset } = useForm();
 
   const onSubmit = (data: any) => {
@@ -109,7 +123,7 @@ ${data.specialRequests || 'None'}
                 exit={{ opacity: 0, x: -100 }}
                 className="grid grid-cols-1 md:grid-cols-2 gap-8"
               >
-                {boats.map((boat) => (
+                {displayedBoats.map((boat) => (
                   <motion.div
                     key={boat.id}
                     whileHover={{ y: -10 }}
@@ -163,7 +177,13 @@ ${data.specialRequests || 'None'}
                               <SelectValue placeholder="Choose your experience..." />
                             </SelectTrigger>
                             <SelectContent>
-                              {experiences.map(exp => (
+                              {experiences
+                                .filter(exp => {
+                                  if (selectedBoat === 'Clear Glass Boat') return exp === 'Clear Boat Experience';
+                                  if (exp === 'Clear Boat Experience') return false;
+                                  return true;
+                                })
+                                .map(exp => (
                                 <SelectItem key={exp} value={exp}>{exp}</SelectItem>
                               ))}
                             </SelectContent>

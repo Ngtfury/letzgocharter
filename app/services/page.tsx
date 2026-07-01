@@ -8,6 +8,29 @@ import { ImageWithFallback } from '@/components/ImageWithFallback';
 
 const seaServices = [
   {
+    title: 'Kalindi - Brand new 62 ft Princess Yacht',
+    description: 'Experience ultimate luxury on our brand new 62 ft Princess Yacht. Choose between Standard, VIP, or VIP with a luxury beach picnic. Half day tours to St Anne Marine Park or North Coast. Full day tours to North Coast or Praslin/La Digue & Curieuse.',
+    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    highlights: [
+      'Standard: Snorkel equipment, sandwiches, canapés & drinks',
+      'VIP: Luxury transfer, Seabob, Efoil, Jetski',
+      'VIP Picnic: Private Chef and luxurious beach setup',
+      'Entrance fees & guided tours included',
+    ],
+    duration: 'Half Day (4 hrs) or Full Day (8 hrs)',
+    capacity: 'Contact for capacity',
+    pricing: {
+      standardHalf: '€6,800 (Standard Half Day)',
+      vipHalf: '€7,800 (VIP Half Day)',
+      picnicHalf: '€8,800 (VIP + Picnic Half Day)',
+      standardFull: '€10,500 (Standard Full Day)',
+      vipFull: '€12,500 (VIP Full Day)',
+      picnicFull: '€15,000 (VIP + Picnic Full Day)',
+    },
+    details: 'VIP Package includes transfer in Mercedes van or Landrover Defender.',
+    boats: 'Kalindi (62 ft Princess Yacht)',
+  },
+  {
     title: 'Clear Boat Experience',
     description: 'Hop aboard our amazing clear boat and cruise across crystal clear waters to St. Anne Marine Park. Spot marine species, sea turtles, and enjoy exciting fish & tortoise feeding.',
     image: '/images/clear-boat.jpg',
@@ -310,7 +333,7 @@ export default function ServicesPage() {
                       className="mt-auto"
                     >
                       <Link
-                        href="/booking"
+                        href={service.title === 'Clear Boat Experience' ? '/booking?boat=clearboat' : '/booking'}
                         className="block w-full px-6 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 font-medium text-center text-sm uppercase tracking-wide"
                       >
                         View Details & Book

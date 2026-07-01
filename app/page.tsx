@@ -176,7 +176,7 @@ export default function HomePage() {
             Luxury Island Experiences<br />in Seychelles
           </h1>
           <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto">
-            Private Charters • Island Cruises • Clear Boat • Beach Picnics
+            Private Charters • Island Cruises • Clear Boat • Beach Picnics • Car Rentals
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

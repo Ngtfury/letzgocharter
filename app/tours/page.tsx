@@ -46,6 +46,7 @@ const toursData = [
         price: '€750',
         capacity: '4-6 passengers',
         includes: ['St. Anne Marine Park', 'Fish feeding', 'Tortoise feeding on Moyenne Island', 'Seabob snorkeling', 'Sandbank walk', 'Fruit platter & sandwiches', 'Snorkeling equipment & entrance fees'],
+        boats: '4 boats',
       },
       {
         name: 'Full Day Cruise',
@@ -53,6 +54,7 @@ const toursData = [
         price: '€950',
         capacity: '4-6 passengers',
         includes: ['Extended marine park exploration', 'North Coast Cruise', 'Seabob experience', 'Multiple feeding activities', 'Fruit platter & meal', 'All equipment included'],
+        boats: '4 boats',
       },
       {
         name: 'Seabob Add-On',
@@ -74,7 +76,7 @@ const toursData = [
         price: '€3,950',
         capacity: '4-6 passengers',
         includes: ['Vallée de Mai UNESCO tour', 'Anse Lazio beach swimming', 'Giant tortoise feeding', 'Curieuse Island snorkeling', 'Private tour guide', 'VIP transfer', 'Full meal & drinks', 'Seabob & snorkeling equipment', 'All entrance fees'],
-        boats: 'Sally (4 pax) or Let\'z Go (6 pax)',
+        boats: '3 boats',
       },
     ],
   },
@@ -89,7 +91,7 @@ const toursData = [
         price: '€3,450',
         capacity: '4-6 passengers',
         includes: ['Anse Source d\'Argent visit', 'Private buggy or bicycle tour', 'Giant tortoise feeding', 'St. Pierre Island snorkeling', 'Crystal-clear water swimming', 'VIP transfer', 'Full meal & drinks', 'Seabob & snorkeling equipment', 'All entrance fees'],
-        boats: 'Sally (4 pax) or Let\'z Go (6 pax)',
+        boats: '3 boats',
       },
     ],
   },
@@ -132,6 +134,7 @@ const toursData = [
         price: '€3,350',
         capacity: 'Maximum 4 passengers',
         includes: ['St. Anne Marine Park exploration', 'Fish & tortoise feeding', 'Seabob snorkeling', 'Private beach setup', 'Private BBQ with personal chef', 'Clear kayaks & paddleboards', 'Fruit platter & champagne', 'Full snorkeling equipment', 'All entrance fees & VIP transfer'],
+        boats: '3 boats',
       },
       {
         name: 'Full Day Picnic',
@@ -139,6 +142,7 @@ const toursData = [
         price: 'Available on request',
         capacity: 'Maximum 4 passengers',
         includes: ['Complete island experience', 'Sandbank relaxation time', 'All marine activities', 'Gourmet private BBQ', 'Premium beverages', 'Water sports equipment', 'Personalized service'],
+        boats: '3 boats',
       },
     ],
   },
@@ -165,7 +169,7 @@ export default function ToursPage() {
           transition={{ duration: 0.8 }}
           className="relative z-10 container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl text-primary mb-4">Our Tours & Experiences</h1>
+          <h1 className="text-5xl md:text-6xl text-primary mb-4">Our Tours & Packages</h1>
           <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
             Detailed pricing and package information
           </p>
