@@ -129,38 +129,88 @@ export default function AboutPage() {
             <h3 className="text-3xl text-primary font-light">Boat Fleet</h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="relative overflow-hidden rounded-lg"
             >
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Luxury yacht"
-                className="w-full h-80 object-cover"
+                src="/images/clear-boat-new.jpg"
+                alt="Clear boat"
+                className="w-full h-64 object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
-                <h3 className="text-2xl text-primary mb-2">Luxury Day Cruiser</h3>
-                <p className="text-foreground/80">Capacity: Up to 12 guests</p>
+                <h3 className="text-xl text-primary mb-1">Clear Boat</h3>
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
               className="relative overflow-hidden rounded-lg"
             >
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1593033166622-49e87e744422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhciUyMGdsYXNzJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080"
-                alt="Clear boat"
-                className="w-full h-80 object-cover"
+                src="/images/sandbank.jpg"
+                alt="Sandbank"
+                className="w-full h-64 object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
-                <h3 className="text-2xl text-primary mb-2">Clear Glass Boat</h3>
-                <p className="text-foreground/80">Capacity: Up to 8 guests</p>
+                <h3 className="text-xl text-primary mb-1">Sandbank</h3>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative overflow-hidden rounded-lg"
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Sally"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
+                <h3 className="text-xl text-primary mb-1">Sally</h3>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="relative overflow-hidden rounded-lg"
+            >
+              <ImageWithFallback
+                src="/images/DSC02979.JPG"
+                alt="Let'z Go Boat"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
+                <h3 className="text-xl text-primary mb-1">Let'z Go Boat</h3>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="relative overflow-hidden rounded-lg"
+            >
+              <ImageWithFallback
+                src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                alt="Kalindi"
+                className="w-full h-64 object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
+                <h3 className="text-xl text-primary mb-1">Kalindi</h3>
               </div>
             </motion.div>
           </div>
@@ -182,8 +232,7 @@ export default function AboutPage() {
                 className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
-                <h4 className="text-xl text-primary mb-1">Luxury SUV</h4>
-                <p className="text-sm text-foreground/80">Capacity: Up to 5 passengers</p>
+                <h4 className="text-xl text-primary mb-1">Defender</h4>
               </div>
             </motion.div>
 
@@ -200,8 +249,7 @@ export default function AboutPage() {
                 className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
-                <h4 className="text-xl text-primary mb-1">Premium Sedan</h4>
-                <p className="text-sm text-foreground/80">Capacity: Up to 3 passengers</p>
+                <h4 className="text-xl text-primary mb-1">Mercedes Van</h4>
               </div>
             </motion.div>
             
@@ -218,8 +266,7 @@ export default function AboutPage() {
                 className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent p-6">
-                <h4 className="text-xl text-primary mb-1">VIP Van</h4>
-                <p className="text-sm text-foreground/80">Capacity: Up to 8 passengers</p>
+                <h4 className="text-xl text-primary mb-1">Mini Cooper</h4>
               </div>
             </motion.div>
           </div>

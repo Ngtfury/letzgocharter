@@ -36,14 +36,19 @@ const carouselImages = [
 
 const experiences = [
   {
+    title: 'VIP Experience',
+    description: 'Ultimate luxury on the Kalindi Princess Yacht',
+    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+  },
+  {
     title: 'Clear Boat Experience',
     description: 'Explore the underwater world without getting wet',
-    image: '/images/clear-boat.jpg',
+    image: '/images/clear-boat-new.jpg',
   },
   {
     title: 'Sandbank & Marine Park',
     description: 'Pristine sandbanks and vibrant coral reefs',
-    image: 'https://images.unsplash.com/photo-1618822461310-da1be362e30c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXljaGVsbGVzJTIwYmVhY2h8ZW58MXx8fHwxNzY4NTUxODYxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/sandbank.jpg',
   },
   {
     title: 'Island Day Cruises',
@@ -58,7 +63,7 @@ const experiences = [
   {
     title: 'Prestige Beach Picnic',
     description: 'Exclusive beach dining experiences',
-    image: 'https://images.unsplash.com/photo-1707296819777-f96b799efb41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHBpY25pYyUyMGx1eHVyeXxlbnwxfHx8fDE3Njg1OTI2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/prestige-picnic.jpg',
   },
 ];
 

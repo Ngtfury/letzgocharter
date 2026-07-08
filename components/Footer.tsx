@@ -69,6 +69,11 @@ export function Footer() {
                   <Link href="/services" className="text-sm text-foreground/70 hover:text-primary transition-colors inline-block">Beach Picnics</Link>
                 </motion.div>
               </li>
+              <li>
+                <motion.div whileHover={{ x: 4 }} transition={{ type: 'spring', stiffness: 300 }}>
+                  <Link href="/services" className="text-sm text-foreground/70 hover:text-primary transition-colors inline-block">VIP Experience</Link>
+                </motion.div>
+              </li>
             </ul>
           </div>
 

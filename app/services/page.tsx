@@ -8,8 +8,8 @@ import { ImageWithFallback } from '@/components/ImageWithFallback';
 
 const seaServices = [
   {
-    title: 'Kalindi - Brand new 62 ft Princess Yacht',
-    description: 'Experience ultimate luxury on our brand new 62 ft Princess Yacht. Choose between Standard, VIP, or VIP with a luxury beach picnic. Half day tours to St Anne Marine Park or North Coast. Full day tours to North Coast or Praslin/La Digue & Curieuse.',
+    title: 'Kalindi - The Princess Boat',
+    description: 'Experience ultimate luxury on our brand new 64 ft Princess Yacht. Choose between Standard, VIP, or VIP with a luxury beach picnic. Half day tours to St Anne Marine Park or North Coast. Full day tours to North Coast or Praslin/La Digue & Curieuse.',
     image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
     highlights: [
       'Standard: Snorkel equipment, sandwiches, canapés & drinks',
@@ -33,7 +33,7 @@ const seaServices = [
   {
     title: 'Clear Boat Experience',
     description: 'Hop aboard our amazing clear boat and cruise across crystal clear waters to St. Anne Marine Park. Spot marine species, sea turtles, and enjoy exciting fish & tortoise feeding.',
-    image: '/images/clear-boat.jpg',
+    image: '/images/clear-boat-new.jpg',
     highlights: [
       'St. Anne Marine Park exploration',
       'Fish & tortoise feeding',
@@ -50,11 +50,12 @@ const seaServices = [
       sunset: '€550 (2 hrs)',
     },
     details: 'Transfer at resort 30 mins prior. Multiple pricing options available.',
+    boats: '1 Boat: Clear Boat',
   },
   {
     title: 'Sandbank & St. Anne Marine Park',
     description: 'Perfect day of island fun exploring pristine sandbanks at St. Anne Marine Park, feeding fish at Moyenne Island, meeting giant tortoises, snorkeling in crystal-clear waters.',
-    image: 'https://images.unsplash.com/photo-1618822461310-da1be362e30c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXljaGVsbGVzJTIwYmVhY2h8ZW58MXx8fHwxNzY4NTUxODYxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/sandbank.jpg',
     highlights: [
       'Explore pristine sandbanks',
       'St. Anne Marine Park with fish feeding',
@@ -71,7 +72,7 @@ const seaServices = [
       seabob: 'Optional - €270',
     },
     details: 'VIP transfer 30 mins prior. Snorkeling equipment & entrance fees included.',
-    boats: 'Sally (Chris Craft 36ft, 4 pax) | Let\'z Go (IMG 40ft, 6 pax) | Sandbank (24ft Robalo)',
+    boats: "3 Boats: Sandbank | Sally | Let'z Go Boat",
   },
   {
     title: 'Praslin & Curieuse Island Full Day Cruise',
@@ -88,7 +89,7 @@ const seaServices = [
     capacity: '4-6 passengers',
     pricing: '€3,950',
     details: 'Departure 9 AM (flexible). VIP transfer 45 mins prior. Fruit platter, soft drinks, fresh sandwiches, snorkeling equipment, Seabob & entrance fees included.',
-    boats: 'Sally (Chris Craft 36ft, 4 pax) | Let\'z Go (IMG 40ft, 6 pax)',
+    boats: "2 Boats: Sally | Let'z Go Boat",
   },
   {
     title: 'La Digue & St. Pierre Island Full Day Cruise',
@@ -105,7 +106,7 @@ const seaServices = [
     capacity: '4-6 passengers',
     pricing: '€3,450',
     details: 'Departure 9 AM (flexible). VIP transfer 45 mins prior. Fruit platter, soft drinks, fresh sandwiches, snorkeling equipment, private buggy/bicycle tour & entrance fees included.',
-    boats: 'Sally (Chris Craft 36ft, 4 pax) | Let\'z Go (IMG 40ft, 6 pax)',
+    boats: "2 Boats: Sally | Let'z Go Boat",
   },
   {
     title: 'Fishing With The Pro',
@@ -126,11 +127,12 @@ const seaServices = [
       fullDayDropoff: '€3,350 (30 knot miles)',
     },
     details: 'Departure 8 AM. VIP transfer 45 mins prior. Fruit platter, soft drinks, fresh sandwiches & fishing gear included.',
+    boats: "2 Boats: Sally | Let'z Go Boat",
   },
   {
     title: 'Prestige Private Beach Picnic',
     description: 'The ultimate luxury experience - private beach setup at St. Anne Marine Park with exclusive amenities. Enjoy fish feeding, tortoise feeding, and a private BBQ with your own chef.',
-    image: 'https://images.unsplash.com/photo-1707296819777-f96b799efb41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHBpY25pYyUyMGx1eHVyeXxlbnwxfHx8fDE3Njg1OTI2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/prestige-picnic.jpg',
     highlights: [
       'St. Anne Marine Park exploration',
       'Fish & tortoise feeding',
@@ -189,6 +191,17 @@ const services = [...seaServices, ...landServices];
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('sea');
+
+  const getBookingUrl = (title: string) => {
+    if (title === 'Kalindi - The Princess Boat') return '/booking?experience=VIP Experience';
+    if (title === 'Clear Boat Experience') return '/booking?experience=Clear Boat Experience';
+    if (title === 'Sandbank & St. Anne Marine Park') return '/booking?experience=Sandbank & St. Anne Marine Park';
+    if (title.includes('Praslin')) return '/booking?experience=Praslin & Curieuse Island Cruise';
+    if (title.includes('La Digue')) return '/booking?experience=La Digue & St. Pierre Island Cruise';
+    if (title === 'Fishing With The Pro') return '/booking?experience=Fishing With The Pro';
+    if (title === 'Prestige Private Beach Picnic') return '/booking?experience=Prestige Private Beach Picnic';
+    return '/booking';
+  };
   return (
     <div className="min-h-screen pt-20">
       {/* Hero */}
@@ -333,7 +346,7 @@ export default function ServicesPage() {
                       className="mt-auto"
                     >
                       <Link
-                        href={service.title === 'Clear Boat Experience' ? '/booking?boat=clearboat' : '/booking'}
+                        href={getBookingUrl(service.title)}
                         className="block w-full px-6 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 font-medium text-center text-sm uppercase tracking-wide"
                       >
                         View Details & Book

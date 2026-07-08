@@ -10,7 +10,7 @@ const toursData = [
   {
     category: 'Clear Boat Experience',
     description: 'Immerse yourself in the underwater world without getting wet',
-    image: '/images/clear-boat.jpg',
+    image: '/images/clear-boat-new.jpg',
     options: [
       {
         name: 'Sharing (Per Person)',
@@ -38,7 +38,7 @@ const toursData = [
   {
     category: 'Sandbank & St. Anne Marine Park',
     description: 'Explore pristine white sandbanks and vibrant marine life',
-    image: 'https://images.unsplash.com/photo-1618822461310-da1be362e30c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZXljaGVsbGVzJTIwYmVhY2h8ZW58MXx8fHwxNzY4NTUxODYxfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/sandbank.jpg',
     options: [
       {
         name: 'Half Day Cruise',
@@ -46,7 +46,7 @@ const toursData = [
         price: '€750',
         capacity: '4-6 passengers',
         includes: ['St. Anne Marine Park', 'Fish feeding', 'Tortoise feeding on Moyenne Island', 'Seabob snorkeling', 'Sandbank walk', 'Fruit platter & sandwiches', 'Snorkeling equipment & entrance fees'],
-        boats: '4 boats',
+        boats: '3 boats',
       },
       {
         name: 'Full Day Cruise',
@@ -54,7 +54,7 @@ const toursData = [
         price: '€950',
         capacity: '4-6 passengers',
         includes: ['Extended marine park exploration', 'North Coast Cruise', 'Seabob experience', 'Multiple feeding activities', 'Fruit platter & meal', 'All equipment included'],
-        boats: '4 boats',
+        boats: '3 boats',
       },
       {
         name: 'Seabob Add-On',
@@ -76,7 +76,7 @@ const toursData = [
         price: '€3,950',
         capacity: '4-6 passengers',
         includes: ['Vallée de Mai UNESCO tour', 'Anse Lazio beach swimming', 'Giant tortoise feeding', 'Curieuse Island snorkeling', 'Private tour guide', 'VIP transfer', 'Full meal & drinks', 'Seabob & snorkeling equipment', 'All entrance fees'],
-        boats: '3 boats',
+        boats: '2 boats',
       },
     ],
   },
@@ -91,7 +91,7 @@ const toursData = [
         price: '€3,450',
         capacity: '4-6 passengers',
         includes: ['Anse Source d\'Argent visit', 'Private buggy or bicycle tour', 'Giant tortoise feeding', 'St. Pierre Island snorkeling', 'Crystal-clear water swimming', 'VIP transfer', 'Full meal & drinks', 'Seabob & snorkeling equipment', 'All entrance fees'],
-        boats: '3 boats',
+        boats: '2 boats',
       },
     ],
   },
@@ -126,7 +126,7 @@ const toursData = [
   {
     category: 'Prestige Private Beach Picnic',
     description: 'Ultimate luxury - private beach with personal chef BBQ',
-    image: 'https://images.unsplash.com/photo-1707296819777-f96b799efb41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWFjaCUyMHBpY25pYyUyMGx1eHVyeXxlbnwxfHx8fDE3Njg1OTI2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/prestige-picnic.jpg',
     options: [
       {
         name: 'Half Day Picnic',
@@ -134,7 +134,7 @@ const toursData = [
         price: '€3,350',
         capacity: 'Maximum 4 passengers',
         includes: ['St. Anne Marine Park exploration', 'Fish & tortoise feeding', 'Seabob snorkeling', 'Private beach setup', 'Private BBQ with personal chef', 'Clear kayaks & paddleboards', 'Fruit platter & champagne', 'Full snorkeling equipment', 'All entrance fees & VIP transfer'],
-        boats: '3 boats',
+        boats: '2 boats',
       },
       {
         name: 'Full Day Picnic',
@@ -142,7 +142,7 @@ const toursData = [
         price: 'Available on request',
         capacity: 'Maximum 4 passengers',
         includes: ['Complete island experience', 'Sandbank relaxation time', 'All marine activities', 'Gourmet private BBQ', 'Premium beverages', 'Water sports equipment', 'Personalized service'],
-        boats: '3 boats',
+        boats: '2 boats',
       },
     ],
   },
@@ -150,6 +150,12 @@ const toursData = [
 
 export default function ToursPage() {
   const [expandedIndex, setExpandedIndex] = useState<string | null>(null);
+
+  const getExperienceParam = (category: string) => {
+    if (category === 'Praslin & Curieuse Island') return 'Praslin & Curieuse Island Cruise';
+    if (category === 'La Digue & St. Pierre Island') return 'La Digue & St. Pierre Island Cruise';
+    return category;
+  };
 
   return (
     <div className="min-h-screen pt-20">
@@ -247,7 +253,7 @@ export default function ToursPage() {
                                 </ul>
                                 <p className="pt-1 text-[10px] opacity-70">Capacity: {option.capacity}</p>
                               </div>
-                              <Link href="/booking" className="block w-full text-center py-2 mt-2 bg-primary/90 hover:bg-primary text-primary-foreground rounded text-xs transition-colors">
+                              <Link href={`/booking?experience=${encodeURIComponent(getExperienceParam(tour.category))}`} className="block w-full text-center py-2 mt-2 bg-primary/90 hover:bg-primary text-primary-foreground rounded text-xs transition-colors">
                                 Book Now
                               </Link>
                             </div>

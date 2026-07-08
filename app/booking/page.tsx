@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 
 const experiences = [
+  'VIP Experience',
   'Clear Boat Experience',
   'Sandbank & St. Anne Marine Park',
   'Praslin & Curieuse Island Cruise',
@@ -46,22 +47,52 @@ const boats = [
   {
     id: 'clearboat',
     name: 'Clear Glass Boat',
-    image: 'https://images.unsplash.com/photo-1593033166622-49e87e744422?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGVhciUyMGdsYXNzJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/clear-boat-new.jpg',
     description: 'Explore the underwater world without getting wet.'
+  },
+  {
+    id: 'sandbank',
+    name: 'Sandbank',
+    image: '/images/sandbank.jpg',
+    description: 'Perfect for exploring pristine white sandbanks and vibrant marine life.'
+  },
+  {
+    id: 'kalindi',
+    name: 'Kalindi',
+    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    description: 'Experience ultimate luxury on our brand new 64 ft Princess Yacht.'
   }
 ];
 
 export default function BookingPage() {
   const [selectedBoat, setSelectedBoat] = useState<string | null>(null);
   const [filterBoat, setFilterBoat] = useState<string | null>(null);
+  const [filterExperience, setFilterExperience] = useState<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setFilterBoat(params.get('boat'));
+    setFilterExperience(params.get('experience'));
   }, []);
 
-  const displayedBoats = filterBoat ? boats.filter(b => b.id === filterBoat) : boats;
-  const { register, control, handleSubmit, formState: { errors }, reset } = useForm();
+  const displayedBoats = boats.filter(b => {
+    if (filterBoat && b.id !== filterBoat) return false;
+    if (filterExperience) {
+      if (filterExperience === 'Clear Boat Experience') return b.id === 'clearboat';
+      if (filterExperience === 'VIP Experience') return b.id === 'kalindi';
+      if (filterExperience === 'Sandbank & St. Anne Marine Park') return ['sandbank', 'sally', 'letzgoboat'].includes(b.id);
+      return ['sally', 'letzgoboat'].includes(b.id);
+    }
+    return true;
+  });
+
+  const { register, control, handleSubmit, formState: { errors }, reset, setValue } = useForm();
+
+  useEffect(() => {
+    if (filterExperience) {
+      setValue('experience', filterExperience);
+    }
+  }, [filterExperience, setValue]);
 
   const onSubmit = (data: any) => {
     const message = `
@@ -177,13 +208,17 @@ ${data.specialRequests || 'None'}
                               <SelectValue placeholder="Choose your experience..." />
                             </SelectTrigger>
                             <SelectContent>
-                              {experiences
-                                .filter(exp => {
-                                  if (selectedBoat === 'Clear Glass Boat') return exp === 'Clear Boat Experience';
-                                  if (exp === 'Clear Boat Experience') return false;
-                                  return true;
-                                })
-                                .map(exp => (
+                                {experiences
+                                  .filter(exp => {
+                                    if (selectedBoat === 'Clear Glass Boat') return exp === 'Clear Boat Experience';
+                                    if (selectedBoat === 'Kalindi') return exp === 'VIP Experience';
+                                    if (selectedBoat === 'Sandbank') return exp === 'Sandbank & St. Anne Marine Park';
+                                    if (selectedBoat === 'Sally' || selectedBoat === 'LetzGoBoat') {
+                                      return exp !== 'Clear Boat Experience' && exp !== 'VIP Experience';
+                                    }
+                                    return true;
+                                  })
+                                  .map(exp => (
                                 <SelectItem key={exp} value={exp}>{exp}</SelectItem>
                               ))}
                             </SelectContent>

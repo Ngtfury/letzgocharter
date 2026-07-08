@@ -61,7 +61,7 @@ export function Header() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="/booking"
+                href="/tours"
                 className="px-6 py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium inline-block"
               >
                 Book Now
@@ -102,7 +102,7 @@ export function Header() {
                 </Link>
               ))}
               <Link
-                href="/booking"
+                href="/tours"
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-6 py-2.5 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-medium text-center"
               >
