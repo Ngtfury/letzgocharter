@@ -72,7 +72,7 @@ const seaServices = [
       seabob: 'Optional - €270',
     },
     details: 'VIP transfer 30 mins prior. Snorkeling equipment & entrance fees included.',
-    boats: "3 Boats: Sandbank | Sally | Let'z Go Boat",
+    boats: "4 Boats: Sandbank | Sally | Let'z Go Boat | Kalindi",
   },
   {
     title: 'Praslin & Curieuse Island Full Day Cruise',
@@ -89,7 +89,7 @@ const seaServices = [
     capacity: '4-6 passengers',
     pricing: '€3,950',
     details: 'Departure 9 AM (flexible). VIP transfer 45 mins prior. Fruit platter, soft drinks, fresh sandwiches, snorkeling equipment, Seabob & entrance fees included.',
-    boats: "2 Boats: Sally | Let'z Go Boat",
+    boats: "3 Boats: Sally | Let'z Go Boat | Kalindi",
   },
   {
     title: 'La Digue & St. Pierre Island Full Day Cruise',
@@ -106,7 +106,7 @@ const seaServices = [
     capacity: '4-6 passengers',
     pricing: '€3,450',
     details: 'Departure 9 AM (flexible). VIP transfer 45 mins prior. Fruit platter, soft drinks, fresh sandwiches, snorkeling equipment, private buggy/bicycle tour & entrance fees included.',
-    boats: "2 Boats: Sally | Let'z Go Boat",
+    boats: "3 Boats: Sally | Let'z Go Boat | Kalindi",
   },
   {
     title: 'Fishing With The Pro',

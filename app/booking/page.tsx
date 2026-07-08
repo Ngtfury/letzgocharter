@@ -71,8 +71,12 @@ export default function BookingPage() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
+    const exp = params.get('experience');
     setFilterBoat(params.get('boat'));
-    setFilterExperience(params.get('experience'));
+    setFilterExperience(exp);
+    if (exp === 'Prestige Private Beach Picnic') {
+      setSelectedBoat('Prestige Private Beach Picnic');
+    }
   }, []);
 
   const displayedBoats = boats.filter(b => {
@@ -80,8 +84,10 @@ export default function BookingPage() {
     if (filterExperience) {
       if (filterExperience === 'Clear Boat Experience') return b.id === 'clearboat';
       if (filterExperience === 'VIP Experience') return b.id === 'kalindi';
-      if (filterExperience === 'Sandbank & St. Anne Marine Park') return ['sandbank', 'sally', 'letzgoboat'].includes(b.id);
-      return ['sally', 'letzgoboat'].includes(b.id);
+      if (filterExperience === 'Sandbank & St. Anne Marine Park') return ['sandbank', 'sally', 'letzgoboat', 'kalindi'].includes(b.id);
+      if (filterExperience === 'Praslin & Curieuse Island Cruise' || filterExperience === 'La Digue & St. Pierre Island Cruise') return ['sally', 'letzgoboat', 'kalindi'].includes(b.id);
+      if (filterExperience === 'Fishing With The Pro') return ['sally', 'letzgoboat'].includes(b.id);
+      if (filterExperience === 'Prestige Private Beach Picnic') return false;
     }
     return true;
   });
@@ -211,11 +217,12 @@ ${data.specialRequests || 'None'}
                                 {experiences
                                   .filter(exp => {
                                     if (selectedBoat === 'Clear Glass Boat') return exp === 'Clear Boat Experience';
-                                    if (selectedBoat === 'Kalindi') return exp === 'VIP Experience';
+                                    if (selectedBoat === 'Kalindi') return ['VIP Experience', 'Sandbank & St. Anne Marine Park', 'Praslin & Curieuse Island Cruise', 'La Digue & St. Pierre Island Cruise'].includes(exp);
                                     if (selectedBoat === 'Sandbank') return exp === 'Sandbank & St. Anne Marine Park';
                                     if (selectedBoat === 'Sally' || selectedBoat === 'LetzGoBoat') {
-                                      return exp !== 'Clear Boat Experience' && exp !== 'VIP Experience';
+                                      return ['Sandbank & St. Anne Marine Park', 'Praslin & Curieuse Island Cruise', 'La Digue & St. Pierre Island Cruise', 'Fishing With The Pro'].includes(exp);
                                     }
+                                    if (selectedBoat === 'Prestige Private Beach Picnic') return exp === 'Prestige Private Beach Picnic';
                                     return true;
                                   })
                                   .map(exp => (
