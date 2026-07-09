@@ -92,7 +92,9 @@ export default function BookingPage() {
     return true;
   });
 
-  const { register, control, handleSubmit, formState: { errors }, reset, setValue } = useForm();
+  const { register, control, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm();
+  
+  const selectedExtras = watch('extras') || [];
 
   useEffect(() => {
     if (filterExperience) {
@@ -259,15 +261,30 @@ ${data.specialRequests || 'None'}
                   <div className="bg-muted/10 border border-border rounded-2xl p-8">
                     <label className="block text-2xl font-light text-primary mb-6">Enhance Your Trip</label>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {extras.map((extra) => (
-                        <label key={extra.name} className="flex items-start gap-3 p-4 border border-border/50 rounded-xl hover:bg-primary/5 cursor-pointer transition-colors">
-                          <input type="checkbox" value={extra.name} {...register('extras')} className="mt-1 accent-primary" />
-                          <div>
-                            <p className="font-medium text-foreground/90">{extra.name}</p>
-                            <p className="text-xs text-primary/70">{extra.price}</p>
+                      {extras.map((extra) => {
+                        const isSelected = selectedExtras.includes(extra.name);
+                        return (
+                        <label key={extra.name} className="flex flex-col p-4 border border-border/50 rounded-xl hover:bg-primary/5 cursor-pointer transition-colors">
+                          <div className="flex items-start gap-3">
+                            <input type="checkbox" value={extra.name} {...register('extras')} className="mt-1 accent-primary" />
+                            <div>
+                              <p className="font-medium text-foreground/90">{extra.name}</p>
+                              <p className="text-xs text-primary/70">{extra.price}</p>
+                            </div>
                           </div>
+                          {isSelected && extra.name === 'Seabob Water Scooter' && (
+                            <div className="mt-4 overflow-hidden rounded-lg w-full">
+                              <img src="/images/efoil.jpeg" alt="Seabob Water Scooter" className="w-full h-48 md:h-64 object-cover" />
+                            </div>
+                          )}
+                          {isSelected && extra.name === 'Jet Ski Rental (Optional)' && (
+                            <div className="mt-4 overflow-hidden rounded-lg w-full">
+                              <img src="/images/jetski.JPG" alt="Jet Ski" className="w-full h-48 md:h-64 object-cover" />
+                            </div>
+                          )}
                         </label>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
 

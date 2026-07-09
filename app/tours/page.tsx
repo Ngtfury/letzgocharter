@@ -112,7 +112,7 @@ const toursData = [
   {
     category: 'La Digue & St. Pierre Island',
     description: 'Explore the iconic "Bicycle Island" with granite boulders',
-    image: 'https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/ladigue.jpeg',
     options: [
       {
         name: 'Full Day Cruise',
@@ -127,7 +127,7 @@ const toursData = [
   {
     category: 'Fishing With The Pro',
     description: 'Expert fishing adventure targeting big game fish',
-    image: 'https://images.unsplash.com/photo-1710442995783-3640c50c4ab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaXNoaW5nJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/gallery/fishing/1.jpg',
     options: [
       {
         name: 'Half Day (Near Islands)',

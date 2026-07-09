@@ -94,7 +94,7 @@ const seaServices = [
   {
     title: 'La Digue & St. Pierre Island Full Day Cruise',
     description: 'Visit the charming "Bicycle Island" of La Digue with iconic granite boulders at Anse Source d\'Argent. Cruise around St. Pierre Island for swimming and snorkeling.',
-    image: 'https://images.unsplash.com/photo-1762353800112-b32322640632?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjB5YWNodCUyMHR1cnF1b2lzZSUyMHdhdGVyfGVufDF8fHx8MTc2ODU5MjY1Nnww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/ladigue.jpeg',
     highlights: [
       'Anse Source d\'Argent - iconic picturesque beach',
       'Private buggy or bicycle tour of La Digue',
@@ -111,7 +111,7 @@ const seaServices = [
   {
     title: 'Fishing With The Pro',
     description: 'From amateurs to professionals, join our expert crew at the best fishing spots around the islands. Opportunity to catch marlin, sailfish, red snapper, kingfish and more.',
-    image: 'https://images.unsplash.com/photo-1710442995783-3640c50c4ab3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaXNoaW5nJTIwYm9hdCUyMG9jZWFufGVufDF8fHx8MTc2ODU5MjY1N3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/gallery/fishing/1.jpg',
     highlights: [
       'Professional fishing crew & expertise',
       'Prime fishing spots around islands',
