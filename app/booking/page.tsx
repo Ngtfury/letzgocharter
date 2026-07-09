@@ -279,7 +279,7 @@ ${data.specialRequests || 'None'}
                           )}
                           {isSelected && extra.name === 'Jet Ski Rental (Optional)' && (
                             <div className="mt-4 overflow-hidden rounded-lg w-full">
-                              <img src="/images/jetski.JPG" alt="Jet Ski" className="w-full h-48 md:h-64 object-cover" />
+                              <img src="/images/jetski.jpeg" alt="Jet Ski" className="w-full h-48 md:h-64 object-cover" />
                             </div>
                           )}
                         </label>
