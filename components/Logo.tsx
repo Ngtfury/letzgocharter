@@ -4,7 +4,7 @@ export function Logo() {
       <img 
         src="/images/nobglogo.png" 
         alt="Let'z Go Charter" 
-        className="h-16 w-auto"
+        className="h-20 md:h-24 w-auto"
       />
     </div>
   );

@@ -180,7 +180,7 @@ export default function HomePage() {
           <h1 className="text-5xl md:text-7xl text-primary mb-6">
             Luxury Island Experiences<br />in Seychelles
           </h1>
-          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-5xl mx-auto">
             Private Charters • Island Cruises • Clear Boat • Beach Picnics • Car Rentals
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

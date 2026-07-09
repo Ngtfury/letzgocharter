@@ -193,14 +193,14 @@ export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('sea');
 
   const getBookingUrl = (title: string) => {
-    if (title === 'Kalindi - The Princess Boat') return '/booking?experience=VIP Experience';
-    if (title === 'Clear Boat Experience') return '/booking?experience=Clear Boat Experience';
-    if (title === 'Sandbank & St. Anne Marine Park') return '/booking?experience=Sandbank & St. Anne Marine Park';
-    if (title.includes('Praslin')) return '/booking?experience=Praslin & Curieuse Island Cruise';
-    if (title.includes('La Digue')) return '/booking?experience=La Digue & St. Pierre Island Cruise';
-    if (title === 'Fishing With The Pro') return '/booking?experience=Fishing With The Pro';
-    if (title === 'Prestige Private Beach Picnic') return '/booking?experience=Prestige Private Beach Picnic';
-    return '/booking';
+    if (title === 'Kalindi - The Princess Boat') return `/tours?highlight=${encodeURIComponent('VIP Experience')}`;
+    if (title === 'Clear Boat Experience') return `/tours?highlight=${encodeURIComponent('Clear Boat Experience')}`;
+    if (title === 'Sandbank & St. Anne Marine Park') return `/tours?highlight=${encodeURIComponent('Sandbank & St. Anne Marine Park')}`;
+    if (title.includes('Praslin')) return `/tours?highlight=${encodeURIComponent('Praslin & Curieuse Island')}`;
+    if (title.includes('La Digue')) return `/tours?highlight=${encodeURIComponent('La Digue & St. Pierre Island')}`;
+    if (title === 'Fishing With The Pro') return `/tours?highlight=${encodeURIComponent('Fishing With The Pro')}`;
+    if (title === 'Prestige Private Beach Picnic') return `/tours?highlight=${encodeURIComponent('Prestige Private Beach Picnic')}`;
+    return '/tours';
   };
   return (
     <div className="min-h-screen pt-20">
