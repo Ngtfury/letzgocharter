@@ -48,7 +48,7 @@ const boats = [
     id: 'clearboat',
     name: 'Clear Glass Boat',
     image: '/images/clear-boat-new.jpg',
-    description: 'Explore the underwater world without getting wet.'
+    description: 'Explore Seychelles in luxury.'
   },
   {
     id: 'sandbank',

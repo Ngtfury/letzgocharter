@@ -42,7 +42,7 @@ const experiences = [
   },
   {
     title: 'Clear Boat Experience',
-    description: 'Explore the underwater world without getting wet',
+    description: 'Explore Seychelles in luxury',
     image: '/images/clear-boat-new.jpg',
   },
   {
