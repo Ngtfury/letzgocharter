@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Anchor, Users, MapPin, Shield, Award, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { ImageSlider } from '@/components/ImageSlider';
 
 const carouselImages = [
   {
@@ -38,12 +39,12 @@ const experiences = [
   {
     title: 'VIP Experience',
     description: 'Ultimate luxury on the Kalindi Princess Yacht',
-    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/kalindi.png',
   },
   {
     title: 'Clear Boat Experience',
     description: 'Explore Seychelles in luxury',
-    image: '/images/clear-boat-new.jpg',
+    image: ['/images/clear-boat-new.jpg', '/images/clearboat2.png'],
   },
   {
     title: 'Sandbank & Marine Park',
@@ -261,8 +262,8 @@ export default function HomePage() {
                 transition={{ delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-lg aspect-[4/3] cursor-pointer"
               >
-                <ImageWithFallback
-                  src={exp.image || "/placeholder.svg"}
+                <ImageSlider
+                  images={exp.image}
                   alt={exp.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
@@ -317,7 +318,7 @@ export default function HomePage() {
                     alt={img.category}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   <div className="absolute bottom-4 left-4 z-10">
                     <span className="text-white text-lg font-medium drop-shadow-md">{img.category}</span>
                   </div>

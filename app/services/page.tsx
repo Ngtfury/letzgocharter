@@ -5,12 +5,13 @@ import { motion } from 'motion/react';
 import { Clock, Users, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { ImageSlider } from '@/components/ImageSlider';
 
 const seaServices = [
   {
     title: 'Kalindi - The Princess Boat',
     description: 'Experience ultimate luxury on our brand new 64 ft Princess Yacht. Choose between Standard, VIP, or VIP with a luxury beach picnic. Half day tours to St Anne Marine Park or North Coast. Full day tours to North Coast or Praslin/La Digue & Curieuse.',
-    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/kalindi.png',
     highlights: [
       'Seabob, jetski, efoil and snorkeling in all packages',
       'Standard: Sandwiches, canapés & drinks',
@@ -34,7 +35,7 @@ const seaServices = [
   {
     title: 'Clear Boat Experience',
     description: 'Hop aboard our amazing clear boat and cruise across crystal clear waters to St. Anne Marine Park. Spot marine species, sea turtles, and enjoy exciting fish & tortoise feeding.',
-    image: '/images/clear-boat-new.jpg',
+    image: ['/images/clear-boat-new.jpg', '/images/clearboat2.png'],
     highlights: [
       'St. Anne Marine Park exploration',
       'Fish & tortoise feeding',
@@ -78,7 +79,7 @@ const seaServices = [
   {
     title: 'Praslin & Curieuse Island Full Day Cruise',
     description: 'Enjoy a day trip to Praslin Island. Visit Vallée de Mai (UNESCO World Heritage Site), swim at the famous Anse Lazio beach, and cruise around Curieuse Island.',
-    image: 'https://images.unsplash.com/photo-1660315250109-075f6b142ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGlzbGFuZCUyMHBhcmFkaXNlfGVufDF8fHx8MTc2ODUxNDMzM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/praslin.png',
     highlights: [
       'Vallée de Mai UNESCO World Heritage Site',
       'Anse Lazio - one of world\'s famous beaches',
@@ -279,7 +280,7 @@ export default function ServicesPage() {
                 className="group relative h-full"
               >
                 {/* Golden Glow Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 {/* Card Border with Golden Glow */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/30 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -289,12 +290,12 @@ export default function ServicesPage() {
                   
                   {/* Image Container */}
                   <div className="relative h-64 overflow-hidden">
-                    <ImageWithFallback
-                      src={service.image || "/placeholder.svg"}
+                    <ImageSlider
+                      images={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-muted" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-muted pointer-events-none" />
                   </div>
 
                   {/* Content Container */}

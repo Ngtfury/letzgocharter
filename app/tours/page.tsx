@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Euro, Clock, Users, Ship, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ImageWithFallback';
+import { ImageSlider } from '@/components/ImageSlider';
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
@@ -11,7 +12,7 @@ const toursData = [
   {
     category: 'VIP Experience',
     description: 'Ultimate luxury on the brand new 64 ft Princess Yacht - Kalindi.',
-    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5YWNodHxlbnwxfHx8fDE3Njg2MDk3MDh8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/kalindi.png',
     options: [
       {
         name: 'VIP Standard (Half Day)',
@@ -39,7 +40,7 @@ const toursData = [
   {
     category: 'Clear Boat Experience',
     description: 'Explore Seychelles in luxury',
-    image: '/images/clear-boat-new.jpg',
+    image: ['/images/clear-boat-new.jpg', '/images/clearboat2.png'],
     options: [
       {
         name: 'Sharing (Per Person)',
@@ -97,7 +98,7 @@ const toursData = [
   {
     category: 'Praslin & Curieuse Island',
     description: 'Visit UNESCO World Heritage Site Vallée de Mai and pristine beaches',
-    image: 'https://images.unsplash.com/photo-1660315250109-075f6b142ebc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0cm9waWNhbCUyMGlzbGFuZCUyMHBhcmFkaXNlfGVufDF8fHx8MTc2ODUxNDMzM3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    image: '/images/praslin.png',
     options: [
       {
         name: 'Full Day Cruise',
@@ -179,13 +180,13 @@ const toursData = [
 
 const renderCardContent = (tour: any, tourIndex: number, expandedIndex: string | null, setExpandedIndex: (id: string | null) => void, getExperienceParam: (cat: string) => string) => (
   <>
-    <div className="relative h-56 overflow-hidden shrink-0">
-      <ImageWithFallback
-        src={tour.image || "/placeholder.svg"}
+    <div className="relative h-72 shrink-0 overflow-hidden">
+      <ImageSlider
+        images={tour.image || "/placeholder.svg"}
         alt={tour.category}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-90 pointer-events-none" />
       <div className="absolute bottom-4 left-4 right-4">
         <h2 className="text-xl font-serif text-primary drop-shadow-sm font-bold">{tour.category}</h2>
       </div>
